@@ -1,38 +1,86 @@
 .App {
-  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+Col {
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* span {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+} */
+
+.header_row{
+  height: 100%;
+}
+
+.header_style {
+  width: 100%;
+  height: 5rem;
+  background-color: #307473;
+  margin-bottom: 4rem;
+}
+
+
+
+.water_logo {
+  margin-left: 10px;
+  width: 40px;
+  justify-self: flex-start;
+}
+
+.title_style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 768px) {
+  .title_style {
+    font-size: 1.5rem; /* Adjusted font size for smaller screens */
+  }
+  .water_logo{
+    width: 1.5rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 576px) {
+  .title_style {
+    font-size: 1.2rem; /* Further adjusted font size for even smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+  .water_logo{
+    width: 1.5rem;
   }
 }
+
+/*  WaterForm CSS */
+
+  .col_style{
+    margin-bottom: 2rem;
+  }
+
+  .card_header_style{
+    color: #307473;
+  }
+
+  .validation_col{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+
+  }
+
+  .validation_style{
+    width: 100%;
+    background-color: #307473;
+  }
