@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "title": "Foyer",
+        "question": "Nombre de personnes composant le foyer :"
+    },
+    {
+        "id": 2,
+        "title": "Vaisselle à la main",
+        "question": "Nombre de lavages de la vaisselle à la main par semaine :"
+    },    
+    {
+        "id": 3,
+        "title": "Lave-vaisselle",
+        "question": "Nombre de cycles de lave-vaisselle par semaine :"
+    },    
+    {
+        "id": 4,
+        "title": "Lave-linge",
+        "question": "Nombre de cycles de lave-linge par semaine :"
+    },    
+    {
+        "id": 5,
+        "title": "Douches",
+        "question": "Nombre de douches par semaine par membre du foyer :"
+    },    
+    {
+        "id": 6,
+        "title": "Bains",
+        "question": "Nombre de bains par semaine et par personne :"
+    },    
+    {
+        "id": 7,
+        "title": "Toilettes",
+        "question": "Nombre d'usages de la chasse d'eau par jour et par personne :"
+    },    
+    {
+        "id": 8,
+        "title": "Jardin",
+        "question": "Surface arrosée de mars à octobre en m2 :"
+    },    
+    {
+        "id": 9,
+        "title": "Absence",
+        "question": "Nombre de jours d'absence du domicile par an :"
+    }
+
+]

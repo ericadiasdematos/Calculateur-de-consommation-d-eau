@@ -1,0 +1,8 @@
+export const SET_HAND_WASHING = "SET_HAND_WASHING";
+export const SET_DISHWASHER = "SET_DISHWASHER";
+export const SET_CLOTHES_WASHING = "SET_CLOTHER_WASHING";
+export const SET_SHOWER_USAGE = "SET_SHOWER_USAGE";
+export const SET_BATH_USAGE = "SET_BATH_USAGE";
+export const SET_TOILET_USAGE = "SET_TOILET_USAGE";
+export const SET_GARDEN = "SET_GARDEN";
+export const SET_TOTAL = "SET_TOTAL";
