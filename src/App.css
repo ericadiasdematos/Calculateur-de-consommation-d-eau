@@ -75,12 +75,34 @@ Col {
 
   .validation_col{
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     margin-bottom: 2rem;
 
   }
 
   .validation_style{
     width: 100%;
-    background-color: #307473;
   }
+
+  .revenir_style {
+    margin-bottom: 0.3rem;
+  }
+
+  .error_style{
+    color: red;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  /* Results CSS */
+  .card_style{
+    padding: 0;
+  }
+
+  .chart_style {
+    width: 20rem;
+    height: 20rem;
+  }
+

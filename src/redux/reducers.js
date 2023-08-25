@@ -10,7 +10,6 @@ const initialState = {
     toilet: 0,
     garden: 0,
     total: 0
-  // ... other water usage properties
 };
 
 const waterUsageReducer = (state = initialState, action) => {
