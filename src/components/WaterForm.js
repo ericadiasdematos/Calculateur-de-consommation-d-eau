@@ -16,47 +16,76 @@ function WaterForm({ setHandWashing, setDishwasher, setClothesWashing,  setShowe
   const [toilettes, setToilettes] = useState(0);
   const [jardin, setJardin] = useState(0);
   const [absences, setAbsences] = useState(0);
+  const [formSubmited, setFormSubmited] = useState(false)
+  const [error, setError] = useState("")
 
   const handleFormValidation = () =>{
-    const avrgShower = 70;
-    const avrgBath = 125;
-    const avrgFlush = 8;
-    const avrgHandWashing = 18;
-    const avrgDishwasher = 20;
-    const avrgClothesWashing = 60;
-    const avrgGarder = 10;
+    if(foyer === 0){
 
-    const weeklyWaterUsage = (douches * avrgShower) +
-                         (bains * avrgBath) +
-                         (toilettes * avrgFlush * 7) +
-                         (vaisselleMain * avrgHandWashing) +
-                         (laveVaisselle * avrgDishwasher) +
-                         (laveLinge * avrgClothesWashing) +
-                         (jardin * avrgGarder);
-    
+      setError("Rentrez le nombre de personnes composant le foyer ")
 
-    const annualWaterUsage = weeklyWaterUsage * 52;
+    }else{
 
-    const dailyWaterUsage = annualWaterUsage / 365;
+      setFormSubmited(true)
+      const avrgShower = 70;
+      const avrgBath = 125;
+      const avrgFlush = 8;
+      const avrgHandWashing = 18;
+      const avrgDishwasher = 20;
+      const avrgClothesWashing = 60;
+      const avrgGarder = 10;
+  
+      const weeklyWaterUsage = (douches * avrgShower) +
+                           (bains * avrgBath) +
+                           (toilettes * avrgFlush * 7) +
+                           (vaisselleMain * avrgHandWashing) +
+                           (laveVaisselle * avrgDishwasher) +
+                           (laveLinge * avrgClothesWashing) +
+                           (jardin * avrgGarder);
+      
+  
+      const annualWaterUsage = weeklyWaterUsage * 52;
+  
+      const dailyWaterUsage = annualWaterUsage / 365;
+  
+      const absencesWaterUsage = absences * dailyWaterUsage
+  
+      const adjustedAnnualWaterUsage = Math.round(annualWaterUsage * foyer - absencesWaterUsage);
+      console.log("adjustedAnnualWaterUsage :", adjustedAnnualWaterUsage)
+  
+      setTotal(adjustedAnnualWaterUsage)
+      setHandWashing((vaisselleMain * avrgHandWashing)*52)
+      setDishwasher((laveVaisselle * avrgDishwasher)*52)
+      setClothesWashing((laveLinge * avrgClothesWashing)*52)
+      setShower((douches * avrgShower)*52)
+      setBath((bains * avrgBath)*52)
+      setToilet((toilettes * avrgFlush * 7)*52)
+      setGarden((jardin * avrgGarder)*52)
+    }
 
-    const absencesWaterUsage = absences * dailyWaterUsage
 
-    const adjustedAnnualWaterUsage = annualWaterUsage * foyer - absencesWaterUsage;
-    console.log("adjustedAnnualWaterUsage :", adjustedAnnualWaterUsage)
 
-    setTotal(adjustedAnnualWaterUsage)
 
-    return adjustedAnnualWaterUsage;
+
+  }
+
+  const handleRevenir = () => {
+    setFormSubmited(false)
+    setTotal(0)
+
   }
 
   return (
     <Container className="container_style">
+      { formSubmited ? 
+      
+      <Button onClick={handleRevenir} className="revenir_style">Revenir au formulaire</Button>
+       : 
       <Row>
-
         <Col xs={12} md={6} className="col_style">
           <Card>
             <Card.Header>
-              <h5 className="card_header_style">Foyer</h5>
+              <h5 className="card_header_style">Foyer *</h5>
             </Card.Header>
             <Card.Body>
               <Form.Group>
@@ -179,7 +208,7 @@ function WaterForm({ setHandWashing, setDishwasher, setClothesWashing,  setShowe
             </Card.Header>
             <Card.Body>
               <Form.Group>
-                <Form.Label>Surface arrosée de mars à octobre en m2 :</Form.Label>
+                <Form.Label>Surface arrosée en m2 :</Form.Label>
                 <Form.Control 
                   type="number"
                   value={jardin}
@@ -208,9 +237,12 @@ function WaterForm({ setHandWashing, setDishwasher, setClothesWashing,  setShowe
         </Col>
 
         <Col xs={12} md={6} className="validation_col">
-          <Button className="validation_style" onClick={handleFormValidation}>Valider</Button>
+          <span className="error_style">{error}</span>
+          <Button className="validation_style" onClick={handleFormValidation}>Calculer</Button>
         </Col>
       </Row>
+      
+      }
     </Container>
   );
 }
